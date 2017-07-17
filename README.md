@@ -2,14 +2,14 @@
 
 [![Build Status](https://travis-ci.org/eclipsesource/tabris-js-cli.svg?branch=master)](https://travis-ci.org/eclipsesource/tabris-js-cli)
 
-Command line tools which make developing Tabris.js apps even easier.
+The super tool for Tabris.js developers.
 
 ## Table of Contents
 * [Installation](#installation)
 * [Commands](#commands)
   + [`tabris init`](#tabris-init)
   + [`tabris serve [options] [path]`](#tabris-serve-options-path)
-  + [`tabris build [options] <platform>`](#tabris-build-options-platform)
+  + [`tabris build [options] <platform> [cordova-platformOpts...]`](#tabris-build-options-platform-cordova-platformopts)
   + [`tabris run [options] <platform>`](#tabris-run-options-platform)
   + [`tabris clean`](#tabris-clean)
 * [License](#license)
@@ -24,15 +24,15 @@ Command line tools which make developing Tabris.js apps even easier.
 
 Creates a new Tabris.js app in the current directory.
 
-*See: [Create your first app - Tabris.js Documentation](https://tabrisjs.com/tabris-js-docs/latest/getting-started.html#create-your-first-app)*
+*See: [Quick Start Guide - Tabris.js Documentation](https://tabrisjs.com/documentation/2.0/getting-started.html)*
 
 ### `tabris serve [options] [path]`
 
-Starts a server the [Tabris.js developer app](https://tabrisjs.com/documentation/latest/developer-app#the-tabrisjs-developer-app) can be pointed to.
+Starts a server the [Tabris.js developer app](https://tabrisjs.com/documentation/2.0/developer-app) can be pointed to.
 
 #### path
 
-The directory to serve the Tabris.js app from. When ommitted, the current working directory is served.
+The file or directory to serve the Tabris.js app from. When ommitted, the current working directory is served.
 
 #### options
 
@@ -40,13 +40,13 @@ The directory to serve the Tabris.js app from. When ommitted, the current workin
 
 Enables request logging.
 
-### `tabris build [options] <platform>`
+### `tabris build [options] <platform> [cordova-platformOpts]`
 
-Builds a Tabris.js app.
+Builds a Tabris.js app for the given platform.
 
-To speed up the build, pre-compiled build artifacts are being reused. To clean up the build cache, e.g. after updating Cordova plug-ins, run `tabris clean`.
+To speed up the build, pre-compiled build artifacts are kept in a build cache and are reused in subsequent builds. To clean up the build cache, e.g. after updating Cordova plug-ins, run `tabris clean`.
 
-*See: [Building a Tabris.js app - Tabris.js Documentation](https://tabrisjs.com/tabris-js-docs/latest/build.html#building-a-tabrisjs-app)*
+*See: [Building a Tabris.js app - Tabris.js Documentation](https://tabrisjs.com/documentation/2.0/build.html)*
 
 #### platform
 
@@ -100,17 +100,21 @@ Do not replace environment variables in config.xml.
 
 Print more verbose output.
 
+#### cordova-platformOpts
+
+Platform-specific options passed to Cordova. See [Platform-specific options - Cordova CLI Reference](https://cordova.apache.org/docs/en/6.x/reference/cordova-cli/#platform-specific-options).
+
 ### `tabris run [options] <platform>`
 
 Builds a Tabris.js app and runs it on a connected device or emulator.
 
 Uses same parameters as `tabris build`.
 
-*See: [Building a Tabris.js app - Tabris.js Documentation](https://tabrisjs.com/tabris-js-docs/latest/build.html#building-a-tabrisjs-app)*
+*See: [Building a Tabris.js app - Tabris.js Documentation](https://tabrisjs.com/documentation/2.0/build.html)*
 
 ### `tabris clean`
 
-Cleans build artifacts.
+Removes build artifacts.
 
 ## License
 
